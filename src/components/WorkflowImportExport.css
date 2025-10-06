@@ -1,0 +1,275 @@
+.workflow-import-export {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.workflow-import-export h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.import-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 2px dashed #ccc;
+}
+
+.file-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  background: #f8f9ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input:hover {
+  border-color: #0056b3;
+  background: #e3f2fd;
+}
+
+.file-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.export-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.export-btn, .bulk-export-btn, .export-selected-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-btn:disabled, .bulk-export-btn:disabled, .export-selected-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.json-btn {
+  background: #28a745;
+  color: white;
+}
+
+.json-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.zip-btn {
+  background: #17a2b8;
+  color: white;
+}
+
+.zip-btn:hover:not(:disabled) {
+  background: #138496;
+}
+
+.bulk-export-btn {
+  background: #6f42c1;
+  color: white;
+}
+
+.bulk-export-btn:hover:not(:disabled) {
+  background: #5a2d96;
+}
+
+.export-selected-btn {
+  background: #fd7e14;
+  color: white;
+}
+
+.export-selected-btn:hover:not(:disabled) {
+  background: #e8650e;
+}
+
+.cancel-btn {
+  padding: 12px 24px;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  background: white;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #6c757d;
+  color: white;
+}
+
+.bulk-export-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.bulk-export-panel {
+  margin-top: 15px;
+}
+
+.workflow-selection {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+}
+
+.workflow-selection h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495057;
+  font-size: 16px;
+}
+
+.workflow-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.workflow-checkbox:last-child {
+  border-bottom: none;
+}
+
+.workflow-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.workflow-checkbox span {
+  font-weight: 500;
+  color: #333;
+}
+
+.workflow-checkbox small {
+  color: #6c757d;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.workflow-checkbox:hover {
+  background: #e9ecef;
+  margin: 0 -15px;
+  padding: 8px 15px;
+}
+
+.bulk-export-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.loading {
+  margin-top: 10px;
+  color: #007bff;
+  font-style: italic;
+}
+
+.error {
+  margin-top: 10px;
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .workflow-import-export {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .export-options {
+    flex-direction: column;
+  }
+  
+  .export-btn, .bulk-export-btn, .export-selected-btn, .cancel-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .bulk-export-actions {
+    flex-direction: column;
+  }
+  
+  .workflow-selection {
+    max-height: 250px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .workflow-import-export {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .import-section,
+  .bulk-export-section {
+    background: #374151;
+    border-color: #4b5563;
+  }
+  
+  .workflow-import-export h3,
+  .workflow-selection h4 {
+    color: #e2e8f0;
+  }
+  
+  .file-input {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #e2e8f0;
+  }
+  
+  .workflow-checkbox {
+    border-color: #4b5563;
+  }
+  
+  .workflow-checkbox span {
+    color: #e2e8f0;
+  }
+  
+  .workflow-checkbox small {
+    color: #9ca3af;
+  }
+  
+  .workflow-selection {
+    background: #1f2937;
+    border-color: #4b5563;
+  }
+  
+  .error {
+    background: #7f1d1d;
+    border-color: #991b1b;
+    color: #fecaca;
+  }
+}

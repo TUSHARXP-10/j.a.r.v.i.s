@@ -1,0 +1,584 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Authentication Styles */
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #666;
+  background: #f8f9fa;
+}
+
+.workflow-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  position: absolute;
+  top: 0;
+  left: 250px;
+  right: 0;
+  z-index: 10;
+  height: 50px;
+  flex-wrap: wrap;
+}
+
+.workflow-name-input {
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.workflow-name-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.toolbar-button {
+  padding: 6px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.toolbar-button:hover {
+  background: #0056b3;
+}
+
+.toolbar-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.toolbar-select {
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+/* Error message styles */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 10px 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  color: #721c24;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.flow-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 50px;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2d3748;
+  color: white;
+  padding: 20px;
+  border-right: 1px solid #4a5568;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Workflow Execution History */
+.workflow-runs {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #4a5568;
+  border-radius: 4px;
+  background: #1a202c;
+}
+
+.workflow-run {
+  padding: 10px;
+  border-bottom: 1px solid #4a5568;
+  font-size: 12px;
+}
+
+.workflow-run:last-child {
+  border-bottom: none;
+}
+
+.workflow-run.completed {
+  border-left: 3px solid #28a745;
+}
+
+.workflow-run.failed {
+  border-left: 3px solid #dc3545;
+}
+
+.run-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.run-status {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.run-status {
+  color: #cbd5e0;
+}
+
+.workflow-run.completed .run-status {
+  color: #28a745;
+}
+
+.workflow-run.failed .run-status {
+  color: #dc3545;
+}
+
+.run-date {
+  color: #a0aec0;
+  font-size: 11px;
+}
+
+.run-result {
+  margin-top: 5px;
+}
+
+.error-text {
+  color: #fc8181;
+  font-size: 11px;
+}
+
+.success-text {
+  color: #68d391;
+  font-size: 11px;
+}
+
+.node-item {
+  background: #4a5568;
+  border: 2px solid #718096;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  text-align: center;
+  font-weight: 500;
+}
+
+.node-item:hover {
+  background: #5a6578;
+  border-color: #9ca3af;
+  transform: translateY(-2px);
+}
+
+.node-item:active {
+  cursor: grabbing;
+}
+
+.input-node {
+  border-color: #4299e1;
+  background: #2b6cb0;
+}
+
+.input-node:hover {
+  background: #3182ce;
+}
+
+.action-node {
+  border-color: #48bb78;
+  background: #2f855a;
+}
+
+.action-node:hover {
+  background: #38a169;
+}
+
+.http-node {
+  border-color: #ed8936;
+  background: #dd6b20;
+}
+
+.http-node:hover {
+  background: #f6ad55;
+}
+
+.file-node {
+  border-color: #9f7aea;
+  background: #805ad5;
+}
+
+.file-node:hover {
+  background: #9f7aea;
+}
+
+.database-node {
+  border-color: #38b2ac;
+  background: #319795;
+}
+
+.database-node:hover {
+  background: #4fd1c7;
+}
+
+.condition-node {
+  border-color: #f56565;
+  background: #e53e3e;
+}
+
+.condition-node:hover {
+  background: #fc8181;
+}
+
+.delay-node {
+  border-color: #718096;
+  background: #4a5568;
+}
+
+.delay-node:hover {
+  background: #a0aec0;
+}
+
+.output-node {
+  border-color: #f6e05e;
+  background: #d69e2e;
+  color: #1a202c;
+}
+
+.output-node:hover {
+  background: #f6e05e;
+}
+
+.canvas-container {
+  flex: 1;
+  position: relative;
+}
+
+.react-flow__node {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.react-flow__node-input {
+  background: #4299e1;
+  border: 2px solid #2b6cb0;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-default {
+  background: #48bb78;
+  border: 2px solid #2f855a;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-http {
+  background: #ed8936;
+  border: 2px solid #dd6b20;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-file {
+  background: #9f7aea;
+  border: 2px solid #805ad5;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-database {
+  background: #38b2ac;
+  border: 2px solid #319795;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-condition {
+  background: #f56565;
+  border: 2px solid #e53e3e;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-delay {
+  background: #718096;
+  border: 2px solid #4a5568;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__node-output {
+  background: #f6e05e;
+  border: 2px solid #d69e2e;
+  color: #1a202c;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__handle {
+  background: white;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.react-flow__handle-top {
+  top: -5px;
+}
+
+.react-flow__handle-bottom {
+  bottom: -5px;
+}
+
+.react-flow__handle-left {
+  left: -5px;
+}
+
+.react-flow__handle-right {
+  right: -5px;
+}
+
+/* Scheduling Styles */
+.toolbar-section {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.toolbar-button.small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.workflow-schedules {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.schedule-item {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+}
+
+.schedule-item.active {
+  border-left: 3px solid #28a745;
+}
+
+.schedule-item.inactive {
+  border-left: 3px solid #6c757d;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.schedule-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: #495057;
+}
+
+.schedule-status {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: #e9ecef;
+  color: #495057;
+}
+
+.schedule-item.active .schedule-status {
+  background: #d4edda;
+  color: #155724;
+}
+
+.schedule-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-cron {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #6c757d;
+  background: #f8f9fa;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.schedule-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.schedule-actions button {
+  padding: 2px 6px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-toggle {
+  background: #ffc107;
+  color: #212529;
+}
+
+.btn-toggle:hover {
+  background: #e0a800;
+}
+
+.btn-toggle.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-toggle.btn-success:hover {
+  background: #218838;
+}
+
+.btn-toggle.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-toggle.btn-danger:hover {
+  background: #c82333;
+}
+
+.btn-edit {
+  background: #17a2b8;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #138496;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+
+.no-schedules {
+  text-align: center;
+  padding: 10px;
+  color: #6c757d;
+}

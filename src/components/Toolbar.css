@@ -1,0 +1,347 @@
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 50px;
+  flex-wrap: wrap;
+}
+
+.workflow-name-input {
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.workflow-name-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.toolbar-button {
+  padding: 6px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.toolbar-button:hover {
+  background: #0056b3;
+}
+
+.toolbar-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.toolbar-select {
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.toolbar-section {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 10px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.toolbar-button.small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Workflow Execution History */
+.workflow-runs {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background: white;
+}
+
+.workflow-run {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 12px;
+}
+
+.workflow-run:last-child {
+  border-bottom: none;
+}
+
+.workflow-run.completed {
+  border-left: 3px solid #28a745;
+}
+
+.workflow-run.failed {
+  border-left: 3px solid #dc3545;
+}
+
+.run-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.run-status {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.run-status.completed {
+  color: #28a745;
+}
+
+.run-status.failed {
+  color: #dc3545;
+}
+
+.run-date {
+  font-size: 10px;
+  color: #666;
+}
+
+.run-result {
+  margin-top: 4px;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 11px;
+}
+
+.success-text {
+  color: #28a745;
+  font-size: 11px;
+}
+
+/* Scheduling Styles */
+.workflow-schedules {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.schedule-item {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+}
+
+.schedule-item.active {
+  border-left: 3px solid #28a745;
+}
+
+.schedule-item.inactive {
+  border-left: 3px solid #6c757d;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.schedule-name {
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+}
+
+.schedule-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.toggle-button,
+.edit-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.toggle-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  background: #f0f0f0;
+}
+
+.toggle-button.enabled {
+  color: #28a745;
+}
+
+.toggle-button.disabled {
+  color: #6c757d;
+}
+
+.edit-button {
+  color: #007bff;
+}
+
+.delete-button {
+  color: #dc3545;
+}
+
+.schedule-cron {
+  font-size: 11px;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  background: #f8f9fa;
+  padding: 2px 4px;
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.schedule-status {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.schedule-status.enabled {
+  color: #28a745;
+}
+
+.schedule-status.disabled {
+  color: #6c757d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 50px;
+    padding: 8px 12px;
+  }
+  
+  .toolbar-section {
+    position: static;
+    margin-top: 8px;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .workflow-name-input {
+    min-width: 150px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .toolbar {
+    background: #2d3748;
+    border-bottom-color: #4a5568;
+  }
+  
+  .workflow-name-input {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .workflow-name-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
+  }
+  
+  .toolbar-button {
+    background: #667eea;
+  }
+  
+  .toolbar-button:hover {
+    background: #5a6fd8;
+  }
+  
+  .toolbar-button:disabled {
+    background: #4a5568;
+  }
+  
+  .toolbar-select {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .toolbar-section {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+  
+  .section-header h3 {
+    color: #e2e8f0;
+  }
+  
+  .workflow-runs {
+    background: #4a5568;
+    border-color: #718096;
+  }
+  
+  .workflow-run {
+    border-bottom-color: #718096;
+  }
+  
+  .schedule-item {
+    background: #4a5568;
+    border-color: #718096;
+  }
+  
+  .schedule-cron {
+    background: #2d3748;
+  }
+}

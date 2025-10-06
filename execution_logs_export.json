@@ -1,0 +1,63 @@
+{
+  "exported_at": "2025-10-06T23:06:40.787291",
+  "workflow_id": 1,
+  "total_logs": 2,
+  "logs": [
+    {
+      "id": 2,
+      "workflow_id": 1,
+      "schedule_id": null,
+      "execution_time": "2025-10-06T17:13:51",
+      "status": "success",
+      "input_data": {
+        "message": "Test execution for logs filtering"
+      },
+      "output_data": {
+        "status": "success",
+        "output": "",
+        "node_outputs": {
+          "1": {
+            "value": ""
+          },
+          "2": {
+            "value": ""
+          }
+        },
+        "execution_order": [
+          "1",
+          "2"
+        ]
+      },
+      "error_message": null,
+      "created_at": "2025-10-06T17:13:51"
+    },
+    {
+      "id": 1,
+      "workflow_id": 1,
+      "schedule_id": null,
+      "execution_time": "2025-10-06T17:12:04",
+      "status": "success",
+      "input_data": {
+        "message": "Hello World"
+      },
+      "output_data": {
+        "status": "success",
+        "output": "",
+        "node_outputs": {
+          "1": {
+            "value": ""
+          },
+          "2": {
+            "value": ""
+          }
+        },
+        "execution_order": [
+          "1",
+          "2"
+        ]
+      },
+      "error_message": null,
+      "created_at": "2025-10-06T17:12:04"
+    }
+  ]
+}
